@@ -1,22 +1,26 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form"} ) do |f| %>
-<div class="field">
-  <%= f.input :email, required: false, autofocus: true %>
-</div>
-<div class="field">
-  <%= f.input :password, required: false %>
-</div>
-
-<div class="field">
-  <div class="ui toggle checkbox">
-    <%= f.input :remember_me ,as: :boolean if devise_mapping.rememberable? %>
+<div class="access-form">
+  <div class="ui top attached header">
+    <h2>Log in</h2>
   </div>
-</div>
 
-<div class="form-actions">
-  <%= f.button :submit, "Log in", class: "ui blue button" %>
-</div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "ui form attached segment"} ) do |f| %>
+  <div class="field">
+    <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "Email" %>
+  </div>
+  <div class="field">
+    <%= f.input :password, required: false, label: false, placeholder: "Password" %>
+  </div>
 
-<%= render "devise/shared/links" %>
+  <div class="field">
+    <div class="ui toggle checkbox">
+      <%= f.input :remember_me ,as: :boolean if devise_mapping.rememberable? %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in", class: "ui blue button" %>
+  </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
